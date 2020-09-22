@@ -7,10 +7,13 @@
       <div class=task>
         <p><% if task.completed? %>
           <i class="far fa-check-square"></i>
+          <span><%= link_to task.title, task_path(task) %></span>
+          <%= link_to "<i class='fas fa-trash-alt p-1'></i>".html_safe, task_path(task), method: :delete, data: {confirm: "Are you sure?"} %></p>
         <% else %>
           <i class="far fa-square"></i>
+          <span><%= link_to task.title, task_path(task) %></span>
+          <%= link_to "<i class='fas fa-trash-alt p-1'></i>".html_safe, task_path(task), method: :delete, data: {confirm: "Are you sure?"} %></p>
         <% end %>
-        <%= task.title %>
       </div>
     </li>
   <% end %>
@@ -23,5 +26,6 @@
   </div>
   
 </div>
+
 
 
